@@ -8,6 +8,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 
 import booking.constants as const
 from booking.booking_filtration import BookingFiltration
+from booking.booking_report import BookingReport
 
 
 class Booking(webdriver.Chrome):
@@ -170,3 +171,10 @@ class Booking(webdriver.Chrome):
 
         filtration.sort_price_lowest()
 
+    def report_results(self):
+
+        hotel_box = self.find_elements(
+            By.CSS_SELECTOR,
+            f'div[aria-label="Property"]'
+        )
+        report = BookingReport(hotel_box)
