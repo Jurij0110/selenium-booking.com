@@ -1,4 +1,5 @@
 import time
+from ftplib import print_line
 
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
@@ -180,9 +181,11 @@ class Booking(webdriver.Chrome):
         )
         report = BookingReport(hotel_box)
         table = PrettyTable(
-            field_names=["Hotel Name", "Hotel Score"]
+            field_names=["No", "Hotel Name", "Hotel Score", "Price"]
         )
         # table.align = "center"
-        table.add_row(report.pull_deal_boxes())
+        for row in report.pull_deal_boxes():
+
+            table.add_row(row)
+
         print(table)
-        print(report.pull_deal_boxes())
