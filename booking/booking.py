@@ -9,6 +9,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 import booking.constants as const
 from booking.booking_filtration import BookingFiltration
 from booking.booking_report import BookingReport
+from prettytable import PrettyTable
 
 
 class Booking(webdriver.Chrome):
@@ -178,3 +179,10 @@ class Booking(webdriver.Chrome):
             f'div[aria-label="Property"]'
         )
         report = BookingReport(hotel_box)
+        table = PrettyTable(
+            field_names=["Hotel Name", "Hotel Score"]
+        )
+        # table.align = "center"
+        table.add_row(report.pull_deal_boxes())
+        print(table)
+        print(report.pull_deal_boxes())

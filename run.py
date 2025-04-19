@@ -8,5 +8,6 @@ with Booking() as bot:
     bot.select_adults(number_adults=5)
     bot.submit()
     bot.apply_filtrations()
+    bot.refresh()
     # print(len(bot.report_results()))
     bot.report_results()
