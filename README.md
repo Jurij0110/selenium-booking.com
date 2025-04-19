@@ -22,8 +22,8 @@ Follow these steps to set up the project:
 1. **Clone the repository** (if applicable):
 
    ```bash
-   git clone <repository-url>
-   cd <project-directory>
+   git clone https://github.com/Jurij0110/selenium-booking.com.git
+   cd AutoTest
 
 ## Help
 
